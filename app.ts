@@ -3,7 +3,6 @@ import chalk from 'chalk';
 
 import './config/env';
 import { expressLogger, logger } from './config/winston';
-import getPinnedRepos from './api/getPinnedRepos';
 import router from './routes/router';
 
 const app: express.Application = express();

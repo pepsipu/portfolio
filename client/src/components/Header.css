@@ -1,0 +1,11 @@
+.header {
+    background: #e5e5e5;
+    border-radius: 30px;
+    display: table;
+}
+
+.headerTitle {
+    padding-left: 10px;
+    display: table-cell;
+    font-size: 30pt;
+}
