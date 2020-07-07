@@ -9,11 +9,34 @@ export default class ApiStatus extends React.Component<any, any> {
     render() {
         return <>
             <Col>
-                <motion.div className={'apiLine'}/>
+                <motion.div initial={{
+                    width: "0%",
+                    x: "-50%"
+                }} animate={{
+                    width: "100%",
+                }} transition={{
+                    delay: 2.7,
+                    duration: .6
+                }} className={'apiLine'}/>
             </Col>
             <Col sm={'content'} className={'api'}>
-                <motion.span>api</motion.span>
-                <motion.div className={`api${true ? "Online" : "Offline"}`}/>
+                <motion.div  variants={{
+                    hidden: {
+                        y: 7,
+                        opacity: 0
+                    },
+                    show: {
+                        transition: {
+                            delay: 3.1,
+                            duration: .4
+                        },
+                        y: 0,
+                        opacity: 1
+                    }
+                }} initial={'hidden'} animate={'show'}>
+                    <motion.span>api</motion.span>
+                    <motion.div className={`api${true ? "Online" : "Offline"}`}/>
+                </motion.div>
             </Col>
         </>
     }
