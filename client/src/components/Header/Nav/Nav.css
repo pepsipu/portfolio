@@ -1,0 +1,14 @@
+.navLine {
+    height: 7px;
+    background: url("../../../img/memphis-mini.png");
+    border-radius: 7px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+
+}
+
+.nav {
+    margin: 10px;
+}

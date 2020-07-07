@@ -4,6 +4,7 @@ import {motion} from 'framer-motion';
 import {Container, Row, Col} from 'react-grid-system';
 
 import Skills from './Skills/Skills';
+import Nav from './Nav/Nav';
 import './Header.css';
 
 export default class Header extends React.Component<any, any> {
@@ -11,7 +12,7 @@ export default class Header extends React.Component<any, any> {
         return <motion.div className={'header'} animate={'visible'} variants={{
             visible: {
                 width: ['10vw', '80vw', '80vw'],
-                height: ['7vh', '7vh', '14vh'],
+                height: ['50px', '50px', '140px'],
                 transition: {
                     duration: 4,
                     times: [.1, .25, .35],
@@ -22,29 +23,42 @@ export default class Header extends React.Component<any, any> {
         }}>
             <Container>
                 <Row>
-                    <Col sm={7}>
-                        <motion.h2 className={'headerTitle'} variants={{
-                            hidden: {
-                                opacity: 0
-                            },
-                            show: {
-                                transition: {
-                                    delay: 2,
-                                },
-                                opacity: 1
-                            }
-                        }} initial={'hidden'} animate={'show'}>
-                            Sammy Hajhamid
-                        </motion.h2>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col sm={5}>
-                        <Row style={{
-                            margin: 0
-                        }}>
-                            <Skills/>
+                    {/* this col holds the name and skill badges */}
+                    <Col sm={'content'}>
+                        {/* top row (name) */}
+                        <Row>
+                            <Col>
+                                <motion.div className={'headerTitle'} variants={{
+                                    hidden: {
+                                        y: -7,
+                                        opacity: 0
+                                    },
+                                    show: {
+                                        transition: {
+                                            delay: 1.8,
+                                        },
+                                        y: 0,
+                                        opacity: 1
+                                    }
+                                }} initial={'hidden'} animate={'show'}>
+                                    Sammy Hajhamid
+                                </motion.div>
+                            </Col>
                         </Row>
+                        {/* bottom row (skill badges) */}
+                        <Row>
+                            <Col>
+                                <Row style={{
+                                    margin: 0
+                                }}>
+                                    <Skills/>
+                                </Row>
+                            </Col>
+                        </Row>
+                    </Col>
+                    {/* navbar col */}
+                    <Col>
+                        <Nav/>
                     </Col>
                 </Row>
             </Container>
