@@ -1,11 +1,20 @@
 import React from 'react';
 import ReactDom from 'react-dom';
+import axios from 'axios';
+import { gateway } from '../../../../config.json';
 import {motion} from 'framer-motion';
 import {Container, Row, Col} from 'react-grid-system';
 import './ApiStatus.css';
 
 
 export default class ApiStatus extends React.Component<any, any> {
+    state = {
+        // assume online?
+        online: true,
+    }
+
+    apiError: Error | undefined;
+
     render() {
         return <>
             <Col>
@@ -35,9 +44,28 @@ export default class ApiStatus extends React.Component<any, any> {
                     }
                 }} initial={'hidden'} animate={'show'}>
                     <motion.span>api</motion.span>
-                    <motion.div className={`api${true ? "Online" : "Offline"}`}/>
+                    <motion.div className={`api${this.state.online ? "Online" : "Offline"}`}/>
                 </motion.div>
             </Col>
         </>
     }
+
+    constructor(props: Object) {
+        super(props);
+        axios.get(`${gateway}`, {timeout: 10000}).then((res) => {
+            const status: StatusResponse = res.data;
+            if (!status.ok) {
+                this.apiError = new Error('response from api was bad');
+                throw this.apiError;
+            }
+            this.setState({online: true});
+        }).catch((e) => {
+            console.log(e);
+            this.setState({online: false});
+        });
+    }
+}
+
+interface StatusResponse {
+    ok: boolean
 }
