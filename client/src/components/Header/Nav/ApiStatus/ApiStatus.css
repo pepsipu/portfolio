@@ -1,4 +1,15 @@
-.api-online, .api-offline {
+.apiLine {
+    height: 4px;
+    background: url("../../../../img/memphis-mini.png");
+    border-radius: 2px;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+
+}
+
+.apiOnline, .apiOffline {
     display: inline-block;
     margin-right: 10px;
     width: 10px;
@@ -8,11 +19,11 @@
     margin-left: 5px;
 }
 
-.api-online {
+.apiOnline {
     background: #51cf66;
 }
 
-.api-offline {
+.apiOffline {
     background: #fa5252;
 }
 

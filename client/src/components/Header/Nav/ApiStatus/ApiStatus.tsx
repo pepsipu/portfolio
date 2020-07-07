@@ -9,11 +9,11 @@ export default class ApiStatus extends React.Component<any, any> {
     render() {
         return <>
             <Col>
-                <motion.div className={'navLine'}/>
+                <motion.div className={'apiLine'}/>
             </Col>
             <Col sm={'content'} className={'api'}>
-                <motion.span className={'api-text'}>api</motion.span>
-                <motion.div className={`api-${true ? "online" : "offline"}`}/>
+                <motion.span>api</motion.span>
+                <motion.div className={`api${true ? "Online" : "Offline"}`}/>
             </Col>
         </>
     }
