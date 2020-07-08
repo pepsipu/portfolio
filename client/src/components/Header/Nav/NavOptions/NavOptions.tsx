@@ -18,8 +18,8 @@ const NavOptions = () => {
             height: '100%'
         }}>
             {navs.map((nav, i) => (
-                <Col className={'navCol'}>
-                    <motion.div key={i} transition={{
+                <Col key={`${i}navcol`} className={'navCol'}>
+                    <motion.div key={`${i}nav`} transition={{
                         delay: 3 + i * .3,
                     }} initial={{
                         opacity: 0,
@@ -27,10 +27,6 @@ const NavOptions = () => {
                     }} animate={{
                         opacity: 1,
                         y: 0,
-                    }} whileHover={{
-                        scale: 1.05
-                    }} whileTap={{
-                        y: 2
                     }} className={'navOption'}>
                         {nav}
                     </motion.div>
