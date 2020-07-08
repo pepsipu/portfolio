@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "pepsi",
+  "name": "Pepsipu's portfolio (Sammy Hajhamid)",
   "icons": [
     {
       "src": "favicon.ico",
@@ -21,5 +21,6 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#ffffff",
+  "dont_steal": "this site was made by p e p s i p u, it was meant only for my use. the gh repo is meant for view only. don't steal :("
 }
