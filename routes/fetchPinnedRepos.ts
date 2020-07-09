@@ -3,13 +3,16 @@ import { Repo, getPinnedRepos } from '../api/getPinnedRepos';
 
 let repoCache: Repo[] = [];
 
+function storeRepos() {
+  getPinnedRepos().then((repos) => {
+    repoCache = repos;
+  });
+}
+
 // cache every 1/2 hour
 export function cacheRepos() {
-  setInterval(() => {
-    getPinnedRepos().then((repos) => {
-      repoCache = repos;
-    });
-  }, 1800000);
+  storeRepos();
+  setInterval(storeRepos, 1800000);
 }
 
 export function fetchPinnedRepos(router: express.Router) {

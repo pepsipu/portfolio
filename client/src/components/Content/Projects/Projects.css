@@ -10,14 +10,22 @@
     justify-content: space-evenly;
 }
 
-.project {
-    flex: 0 20%;
-    margin: 40px;
+.projectContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.projectHover {
     height: 320px;
     border-radius: 30px;
-    width: 20px;
     color: black;
     background: url("../../../img/memphis-mini.png");
+}
+
+.project {
+    flex: 0 23%;
+    margin: 20px;
 }
 
 .project * {
@@ -25,10 +33,13 @@
 }
 
 .project p {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 10px 30px 30px;
 }
 
 .project h4 {
-    color: #d4d4d4d4;
+    color: #2d2d2d;
+}
+
+.project h2 {
+    padding-top: 10px;
 }

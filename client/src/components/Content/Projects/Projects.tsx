@@ -21,26 +21,62 @@ const Projects = () => {
         opacity: 100,
       }}
       transition={{
-        duration: 0.7,
+        duration: 0.6,
       }}
       className="projects"
     >
-      {projects.map((repo) => (
-        <motion.div className="project">
-          <motion.div>
-            <div style={{
-              background: repo.primaryLanguage.color,
-              height: '30px',
-              borderTopLeftRadius: '20px',
-              borderTopRightRadius: '20px',
+      <p>
+        These are just my favorite projects! I have way more on my
+        {' '}
+        <a href="https://github.com/pepsipu">github</a>
+        .
+      </p>
+      <div className="projectContainer">
+        {projects.map((repo, i) => (
+          <motion.div
+            className="project"
+            initial={{
+              opacity: 0,
+              y: -7,
             }}
-            />
-            <h2>{repo.name}</h2>
-            <h4>{repo.primaryLanguage.name}</h4>
-            <p>{repo.description}</p>
+            animate={{
+              opacity: 1,
+              y: 0,
+            }}
+            transition={{
+              delay: 0.3 + i * 0.2,
+            }}
+          >
+            <motion.div
+              className="projectHover"
+              whileHover={{
+                scale: 1.05,
+              }}
+              whileTap={{
+                scale: 0.95,
+              }}
+              onClick={() => {
+                window.location.href = `https://github.com/pepsipu/${repo.name}`;
+              }}
+            >
+              <div style={{
+                background: repo.primaryLanguage.color,
+                height: '30px',
+                borderTopLeftRadius: '20px',
+                borderTopRightRadius: '20px',
+                borderBottomColor: 'black',
+                borderBottomWidth: 'thick',
+                borderBottom: 'solid',
+              }}
+              />
+              <h2>{repo.name}</h2>
+              <h4>{repo.primaryLanguage.name}</h4>
+              <p>{repo.description}</p>
+            </motion.div>
           </motion.div>
-        </motion.div>
-      ))}
+        ))}
+      </div>
+
     </motion.div>
   );
 };
