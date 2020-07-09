@@ -15,8 +15,8 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next();
 });
-app.use('/api', router);
 app.use(expressLogger);
+app.use('/api', router);
 
 app.listen(port, () => {
   logger.info(`Express server has started listening on port ${chalk.red(port)}.`);

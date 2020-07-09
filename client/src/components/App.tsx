@@ -8,6 +8,17 @@ const tabs = {
     name: 'projects',
     component: Projects,
   },
+  blog: {
+    displayName: 'blog',
+    name: 'blog',
+    component: () => {
+      window.location.href = 'https://blog.pepsipu.com';
+      return (
+        <>
+        </>
+      );
+    },
+  },
 };
 
 export default class App extends React.Component<any, any> {
@@ -37,4 +48,4 @@ interface AppState {
   activeTab: ActiveTab
 }
 
-type ActiveTab = 'projects' | null;
+type ActiveTab = 'projects' | 'blog' | null;
