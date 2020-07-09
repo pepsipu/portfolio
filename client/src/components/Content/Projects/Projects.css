@@ -17,14 +17,14 @@
 }
 
 .projectHover {
-    height: 320px;
+    height: 260px;
     border-radius: 30px;
     color: black;
     background: url("../../../img/memphis-mini.png");
 }
 
 .project {
-    flex: 0 23%;
+    flex: 0 30%;
     margin: 20px;
 }
 
@@ -34,6 +34,7 @@
 
 .project p {
     padding: 10px 30px 30px;
+    font-size: 12pt;
 }
 
 .project h4 {

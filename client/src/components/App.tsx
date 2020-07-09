@@ -19,6 +19,17 @@ const tabs = {
       );
     },
   },
+  ctfs: {
+    displayName: 'ctfs',
+    name: 'ctfs',
+    component: () => {
+      window.location.href = 'https://ctftime.org/team/59759';
+      return (
+        <>
+        </>
+      );
+    },
+  },
 };
 
 export default class App extends React.Component<any, any> {
