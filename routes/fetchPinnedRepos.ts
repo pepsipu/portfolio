@@ -1,11 +1,19 @@
 import express from 'express';
-import getPinnedRepos from '../api/getPinnedRepos';
+import { Repo, getPinnedRepos } from '../api/getPinnedRepos';
 
-export default (router: express.Router) => {
-  router.get('/repos', (req, res) => {
+let repoCache: Repo[] = [];
+
+// cache every 1/2 hour
+export function cacheRepos() {
+  setInterval(() => {
     getPinnedRepos().then((repos) => {
-      res.send({ repos });
-      res.end();
+      repoCache = repos;
     });
+  }, 1800000);
+}
+
+export function fetchPinnedRepos(router: express.Router) {
+  router.get('/repos', (req, res) => {
+    res.send({ repos: repoCache });
   });
-};
+}

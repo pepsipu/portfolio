@@ -2,7 +2,7 @@ import axios from 'axios';
 import schemas from '../schemas/schemas';
 import { gqlEndpoint } from '../config/config.json';
 
-function getPinnedRepos(): Promise<Repo[]> {
+export function getPinnedRepos(): Promise<Repo[]> {
   return new Promise((resolve, reject) => {
     axios.post(gqlEndpoint, {
       query: schemas.getPinnedRepos,
@@ -16,7 +16,7 @@ function getPinnedRepos(): Promise<Repo[]> {
   });
 }
 
-interface Repo {
+export interface Repo {
   name: string;
   description: string;
   forks: Countable;
@@ -32,5 +32,3 @@ interface PrimaryLanguage {
   name: string;
   color: string;
 }
-
-export default getPinnedRepos;
