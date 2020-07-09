@@ -7,7 +7,7 @@ import Skills from './Skills/Skills';
 import Nav from './Nav/Nav';
 import './Header.css';
 
-export default class Header extends React.Component<any, any> {
+export default class Header extends React.Component<HeaderProps, any> {
     render() {
         return <motion.div className={'header'} animate={'visible'} variants={{
             visible: {
@@ -58,10 +58,14 @@ export default class Header extends React.Component<any, any> {
                     </Col>
                     {/* navbar col */}
                     <Col>
-                        <Nav/>
+                        <Nav tabSetter={this.props.tabSetter}/>
                     </Col>
                 </Row>
             </Container>
         </motion.div>
     }
+}
+
+interface HeaderProps {
+    tabSetter: any
 }

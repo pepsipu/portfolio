@@ -3,9 +3,14 @@ import React from 'react';
 import './NavOptions.css';
 import {Row, Col} from "react-grid-system";
 
-const navs = ['about_me', 'ctfs', 'projects'];
+const navs = [
+    {
+        displayName: 'about_me',
+        name: 'aboutMe'
+    },
+]
 
-const NavOptions = () => {
+const NavOptions = (props: NavOptionsProps) => {
     return <motion.div className={'navOptions'} initial={{
         width: '0%',
         opacity: 0
@@ -19,7 +24,7 @@ const NavOptions = () => {
         <Row style={{
             height: '100%'
         }}>
-            {navs.map((nav, i) => (
+            {navs.map(({ displayName, name }, i) => (
                 <Col key={`${i}navcol`} className={'navCol'}>
                     <motion.div key={`${i}nav`} transition={{
                         delay: 3 + i * .25,
@@ -36,15 +41,19 @@ const NavOptions = () => {
                         <motion.div whileHover={{
                             scale: 1.05
                         }} whileTap={{
-                            y: 2
-                        }} className={'navOption'}>
-                            {nav}
+                            y: 3
+                        }} onClick={() => props.tabSetter(name)} className={'navOption'}>
+                            {displayName}
                         </motion.div>
                     </motion.div>
                 </Col>
             ))}
         </Row>
     </motion.div>
+}
+
+interface NavOptionsProps {
+    tabSetter: any
 }
 
 export default NavOptions;
