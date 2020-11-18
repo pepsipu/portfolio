@@ -1,12 +1,17 @@
 import React from 'react';
 import Header from './Header/Header';
-import Projects from './Content/Projects/Projects';
 
 const tabs = {
   projects: {
     displayName: 'projects',
     name: 'projects',
-    component: Projects,
+    component: () => {
+      window.location.href = 'https://github.com/pepsipu';
+      return (
+        <>
+        </>
+      );
+    },
   },
   blog: {
     displayName: 'blog',
