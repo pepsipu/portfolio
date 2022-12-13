@@ -20,7 +20,7 @@
     "chalk": "^4.0.0",
     "concurrently": "^5.2.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "logform": "^2.1.2",
     "morgan": "^1.10.0",
     "typescript": "^3.9.3",
